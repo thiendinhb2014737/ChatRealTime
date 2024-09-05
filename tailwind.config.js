@@ -14,7 +14,14 @@ export default {
         },
       },
       height: {
-        custom: "730px",
+        custom: "610px",
+      },
+      flexBasis: {
+        "1/2": "50%",
+        "1/3": "33.333333%",
+        "1/4": "25%",
+        full: "100%",
+        custom: "510px", // Thêm giá trị tùy chỉnh cho flex-basis
       },
     },
   },

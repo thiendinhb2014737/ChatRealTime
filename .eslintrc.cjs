@@ -13,6 +13,7 @@ module.exports = {
   plugins: ["react-refresh", "filenames", "import", "unicorn"],
   rules: {
     "react/jsx-no-target-blank": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
@@ -48,6 +49,7 @@ module.exports = {
         includeExports: true,
       },
     ],
+    "prefer-const": ["off"],
     camelcase: ["warn"],
     "no-var": ["error"],
     "no-console": ["warn"],

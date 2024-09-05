@@ -12,6 +12,7 @@ import msg2 from "../assets/images/msg2.png";
 import msg3 from "../assets/images/msg3.png";
 import textLogo from "../assets/images/textLogo.png";
 import { auth, db } from "../firebase/config";
+import { generateKeywords } from "../utils";
 
 const Header = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -39,6 +40,8 @@ const Header = () => {
     }, 1000);
   };
 
+  // NẾU ĐĂNG NHẬP (ĐỌC, GHI VÀO FIRESTORE KHÔNG ĐƯỢC THÌ CHỈNH LẠI THỜI GIAN ĐỌC, GHI TRONG RULES CỦA FIRESTORE)
+
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
     try {
@@ -51,7 +54,6 @@ const Header = () => {
         collection(db, "users"),
         where("uid", "==", result.user.uid),
       );
-
       const querySnapshot = await getDocs(q);
 
       if (querySnapshot.empty === true) {
@@ -61,6 +63,7 @@ const Header = () => {
             email: result.user.email,
             avt: result.user.photoURL,
             uid: result.user.uid,
+            keywords: generateKeywords(result.user.displayName),
           });
         } catch (e) {
           //
@@ -78,6 +81,7 @@ const Header = () => {
       //
     }
   };
+
   return (
     <div className="flex flex-row gap-6 justify-center items-center bg-pink-200 ">
       <div className="basis-2/4 overflow-x-hidden">
@@ -99,10 +103,10 @@ const Header = () => {
           className="text-lg text-white bg-pink-500 rounded-3xl p-4"
           onClick={showModal}
         >
-          Sign up
+          Sign in
         </Button>
         <Button className="text-lg text-white bg-pink-500 rounded-3xl p-4">
-          Sign in
+          Sign up
         </Button>
       </div>
       <Modal

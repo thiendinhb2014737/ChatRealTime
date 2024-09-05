@@ -23,29 +23,35 @@ const MyAccount = () => {
       </div>
       <div className="flex flex-col gap-5 justify-center items-center my-2">
         <button>
-          <i className="fa-solid fa-comment fa-fade fa-2xl"></i>
+          <i
+            className="fa-solid fa-comment fa-fade fa-2xl"
+            style={{ color: "white" }}
+          ></i>
         </button>
         <p className="text-white text-xs">Messages</p>
       </div>
       <div className="flex flex-col gap-5 justify-center items-center my-2">
         <button>
-          <i className="fa-solid fa-address-book fa-2xl"></i>
+          <i
+            className="fa-solid fa-address-book fa-2xl"
+            style={{ color: "white" }}
+          ></i>
         </button>
         <p className="text-white text-xs">User book</p>
       </div>
       <div className="flex flex-col gap-5 justify-center items-center my-2">
         <button>
-          <i className="fa-solid fa-bell fa-2xl"></i>
+          <i className="fa-solid fa-bell fa-2xl" style={{ color: "white" }}></i>
         </button>
         <p className="text-white text-xs">Notification</p>
       </div>
       <div className="flex flex-col gap-5 justify-center items-center my-2">
         <button>
-          <i className="fa-solid fa-gear fa-2xl"></i>
+          <i className="fa-solid fa-gear fa-2xl" style={{ color: "white" }}></i>
         </button>
         <p className="text-white text-xs">Setting</p>
       </div>
-      <div className="mt-36">
+      <div className="mt-32">
         <button
           className="text-white text-xs bg-pink-950 rounded px-3 py-1"
           onClick={handleSignOut}
